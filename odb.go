@@ -130,7 +130,6 @@ func (v *Odb) ForEach(callback OdbForEachCallback) error {
 	defer pointerHandles.Untrack(handle)
 
 	ret := C._go_git_odb_foreach(v.ptr, handle)
-	fmt.Println("ret %v", ret)
 	if ret == C.GIT_EUSER {
 		return data.err
 	} else if ret < 0 {
